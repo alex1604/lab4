@@ -1,21 +1,66 @@
-<script>
-  window.addEventListener('load', function(){
-    let req = new XMLHttpRequest();
+<!DOCTYPE html>
 
-    var URL1 = 'http://api.boktipset.se/api/authenticate.cgi?format=json';
-    req.open('GET', URL1);
-    req.send();
+<html lang="en-UK">
+<head>
 
-    req.onreadystatechange = function(event) {
-      console.log("readyState:" + req.readyState);
-      console.log("status:" + req.status);
-      console.log("responseText:" + req.responseText);
-      if( req.readyState == 4 ) {
-        let obj = req.responseText;
-        let key = obj.user_key;
-        alert('key: ' + key);
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      }
-    }
-  });
-</script>
+  <title>iBookShelf</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/index.css">
+  <script src="https://use.fontawesome.com/3cdd4eeb18.js"></script>
+  <script src="javascript/index.js"></script>
+
+</head>
+<body>
+  <header>
+    <nav>
+
+    </nav>
+  </header>
+  <main>
+    <div id="banner">
+      <div id="introduction">
+        <h1>LAB 4 - Karin & Alejandro</h1>
+        <p></p>
+      </div>
+      <div id="key">
+        <button type="button" id="keybutton">REQUEST API KEY</button>
+        <div id="keyresult"></div>
+      </div>
+    </div>
+    <div id="div1">
+      <div id="add" class="indiv">
+        <button type="button" id="addbutton">Add a book</button>
+        <input id = "addTitle" type="text"/>
+        <input id = "addAuthor" type="text"/>
+      </div>
+      <div id="view" class="indiv">
+        <button type="button" id="viewbutton">View your bookshelf</button>
+        <div id="viewresult"></div>
+      </div>
+    </div>
+    <div id="div2">
+      <div id="change" class="indiv">
+        <button type="button" id="changebutton">Change book</button>
+        <input id = "changeNum" type="text"/>
+        <input id = "changeTitle" type="text"/>
+        <input id = "changeAuthor" type="text"/>
+      </div>
+      <div id="delete" class="indiv">
+        <button type="button" id="deletebutton">Delete book</button>
+        <input id = "deleteInput" type="text"/>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+
+  </footer>
+</body>
+
+<html>
