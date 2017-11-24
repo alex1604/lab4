@@ -61,6 +61,8 @@ main{
   border:1px solid #82FA58;
   width:8em;
   height:2em;
+  padding-top:1%;
+  text-align:center;
 }
 #viewresult{
   align-self:center;
