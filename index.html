@@ -1,0 +1,21 @@
+<script>
+  window.addEventListener('load', function(){
+    let req = new XMLHttpRequest();
+
+    var URL1 = 'http://api.boktipset.se/api/authenticate.cgi?format=json';
+    req.open('GET', URL1);
+    req.send();
+
+    req.onreadystatechange = function(event) {
+      console.log("readyState:" + req.readyState);
+      console.log("status:" + req.status);
+      console.log("responseText:" + req.responseText);
+      if( req.readyState == 4 ) {
+        let obj = req.responseText;
+        let key = obj.user_key;
+        alert('key: ' + key);
+
+      }
+    }
+  });
+</script>
