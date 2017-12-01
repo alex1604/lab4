@@ -37,7 +37,7 @@ main{
   color:white;
   font-weight:bold;
 }
-#key{
+#key_view{
   display:flex;
   flex-direction:column;
   justify-content: center;
@@ -69,8 +69,10 @@ main{
   border: 1px solid #82FA58;
   border-radius: 7px;
   min-height: 2em;
-  width: 12em;
+  height: auto;
+  width: 25em;
   margin-top: 1%;
+
   background-color: #BEF781;
   color: #088A29;
 }
@@ -78,7 +80,7 @@ main{
   display:flex;
   flex-direction:column;
   justify-content: flex-start;
-  padding:0 10%;
+  padding:5% 5%;
   height:14em;
   width: 50%;
 }
