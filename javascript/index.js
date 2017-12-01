@@ -5,10 +5,11 @@ var callback = function (){
   let addbutton = document.getElementById('addbutton');
   let viewbutton = document.getElementById('viewbutton');
   let viewresult = document.getElementById('viewresult');
+  let errorMsg = document.getElementById('error');
+
   var URL = 'https://www.forverkliga.se/JavaScript/api/crud.php';
 
   button.addEventListener('click', function() {
-
     let req = new XMLHttpRequest();
     let keyGet = '?requestKey';
     var URL1 = URL + keyGet;
@@ -48,6 +49,15 @@ var callback = function (){
           req.onreadystatechange = function(event){
             if (req.readyState == 4){
               console.log(req.responseText);
+              let response = JSON.parse(req.responseText);
+              console.log(response.status);
+              if(response.status === "error"){
+              //  let i = 0;
+              //  i++;
+                console.log(i);
+                errorMsg.innerHTML += ` Sorry, there's been an error. <br/> Error nr. . Message: ${response.message} <br/>`;
+
+              }
             }
           }
         });
