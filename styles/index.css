@@ -25,6 +25,12 @@ main{
 #add{
   border-right: 1px solid black;
 }
+#error{
+  background-color: #BEF781;
+  height: auto;
+  width: 25em;
+  box-sizing: border-box;
+}
 
 #change{
   border-right: 1px solid black;
@@ -80,11 +86,15 @@ main{
   display:flex;
   flex-direction:column;
   justify-content: flex-start;
-  padding:5% 5%;
+  padding:5% 4%;
   height:14em;
   width: 50%;
 }
 
 button {
 width: ;
+}
+
+h4 {
+  margin: 0;
 }
