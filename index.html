@@ -9,7 +9,7 @@
 
   <title>iBookShelf</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Lato" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/index.css">
   <script src="https://use.fontawesome.com/3cdd4eeb18.js"></script>
   <script src="javascript/index.js"></script>
@@ -35,8 +35,10 @@
     <div id="div1">
       <div id="add" class="indiv">
         <button type="button" id="addbutton">Add a book</button>
-        <input id = "addTitle" type="text"/>
-        <input id = "addAuthor" type="text"/>
+        <div id="input-wrap">
+        <label>Title <input id = "addTitle" type="text"/></label>
+        <label>Author <input id = "addAuthor" type="text"/></label>
+      </div>
         <div id="error">
           <h4>Error Messages</h4>
         </div>
@@ -47,18 +49,6 @@
           <ol id="list">
           </ol>
         </div>
-      </div>
-    </div>
-    <div id="div2">
-      <div id="change" class="indiv">
-        <button type="button" id="changebutton">Change book</button>
-        <input id = "changeNum" type="text"/>
-        <input id = "changeTitle" type="text"/>
-        <input id = "changeAuthor" type="text"/>
-      </div>
-      <div id="delete" class="indiv">
-        <button type="button" id="deletebutton">Delete book</button>
-        <input id = "deleteInput" type="text"/>
       </div>
     </div>
 

@@ -50,13 +50,9 @@ var callback = function (){
           req.send();
           req.onreadystatechange = function(event){
             if (req.readyState == 4){
-              console.log(req.responseText);
               let response = JSON.parse(req.responseText);
-              console.log(response.status);
-
               if(response.status === "error"){
                 count++;
-                console.log(count);
                 errorMsg.innerHTML += `Sorry, there's been an error. <br/> Error nr: ${count} Message: ${response.message} <br/>`;
 
               }
@@ -73,30 +69,28 @@ var callback = function (){
           "updated":"2017-12-01 11:16:57"}]}
 
           */
-          console.log(key);
+
           let view = '?op=select&key=' + key;
           let URL3 = URL + view;
-          console.log(URL3);
+
           req.open('GET', URL3);
           req.send();
           req.onreadystatechange = function(event){
             if (req.readyState == 4){
               let obj = JSON.parse(req.responseText);
-              obj = obj.data;
+              let data = obj.data;
+
               let array = [];
-              for(x of obj){
-                array.push(x);
+              for(x in data){
+                array.push(data[x]);
               }
-              console.log(array);
               for (i=0; i<array.length;i++){
-                console.log(array[i]);
                 let book = 'Title: ' + array[i].title + '; Author: ' + array[i].author;
                 let li = document.createElement('li');
                 li.innerHTML = book;
                 let list = document.getElementById('list');
                 list.appendChild(li);
               }
-            console.log(array);
             }
           }
         });
