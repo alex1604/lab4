@@ -1,4 +1,3 @@
-
 var callback = function (){
   let button = document.getElementById('keybutton');
   let keydiv = document.getElementById('keyresult');
@@ -9,6 +8,7 @@ var callback = function (){
   var count = 0;
 
   var URL = 'https://www.forverkliga.se/JavaScript/api/crud.php';
+
 
   button.addEventListener('click', function() {
     let req = new XMLHttpRequest();
@@ -51,10 +51,25 @@ var callback = function (){
           req.onreadystatechange = function(event){
             if (req.readyState == 4){
               let response = JSON.parse(req.responseText);
-              if(response.status === "error"){
-                count++;
-                errorMsg.innerHTML += `Sorry, there's been an error. <br/> Error nr: ${count} Message: ${response.message} <br/>`;
+              if(response.status === "success"){
+                alert('Your book was SUCCESSFULLY added to your Library');
+              }
+              else if(response.status === "error"){
+                console.log('an error ocurred');
 
+                function tryAgain(){
+                  count++;
+                  errorMsg.innerHTML += `<pre>- Sorry, there's been an error. <br/>  Error nr: ${count} / Message: ${response.message} <br/></pre>`;
+                  req.open('GET', URL2);
+                  req.send();
+
+                  if (req.readyState == 4){
+
+                    if(response.status === "error" && count<20){ tryAgain();}
+                  }
+
+                }
+                tryAgain();
               }
             }
           }
@@ -78,8 +93,23 @@ var callback = function (){
           req.onreadystatechange = function(event){
             if (req.readyState == 4){
               let obj = JSON.parse(req.responseText);
-              let data = obj.data;
 
+              //
+                if(obj.status === "error"){
+
+                function tryAgain(){
+                  count++;
+                  req.open('GET', URL3);
+                  req.send();
+
+                  if (req.readyState == 4){
+                    if(response.status === "error" && count<20){ tryAgain();}
+                  }
+                }
+                tryAgain();
+              }
+              //
+              let data = obj.data;
               let array = [];
               for(x in data){
                 array.push(data[x]);

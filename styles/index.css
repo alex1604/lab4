@@ -35,7 +35,7 @@ main{
   overflow-y:scroll;
   width: 25em;
   box-sizing: border-box;
-  padding:2%;
+  padding:1%;
 }
 #viewresult{
   align-self:center;
@@ -47,7 +47,7 @@ main{
   width: 25em;
   margin-top: 3em;
   box-sizing: border-box;
-  padding:2%;
+  padding:1%;
 }
 
 #change{
