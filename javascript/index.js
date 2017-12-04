@@ -6,6 +6,7 @@ var callback = function (){
   let viewbutton = document.getElementById('viewbutton');
   let viewresult = document.getElementById('viewresult');
   let errorMsg = document.getElementById('error');
+  var count = 0;
 
   var URL = 'https://www.forverkliga.se/JavaScript/api/crud.php';
 
@@ -23,6 +24,7 @@ var callback = function (){
         keydiv.innerHTML = key;
 
         addbutton.addEventListener('click', function(){
+
           let title1 = document.getElementById('addTitle').value;
           var title = '';
           for (i=0;i<title1.length;i++){
@@ -51,11 +53,11 @@ var callback = function (){
               console.log(req.responseText);
               let response = JSON.parse(req.responseText);
               console.log(response.status);
+
               if(response.status === "error"){
-              //  let i = 0;
-              //  i++;
-                console.log(i);
-                errorMsg.innerHTML += ` Sorry, there's been an error. <br/> Error nr. . Message: ${response.message} <br/>`;
+                count++;
+                console.log(count);
+                errorMsg.innerHTML += `Sorry, there's been an error. <br/> Error nr: ${count} Message: ${response.message} <br/>`;
 
               }
             }
